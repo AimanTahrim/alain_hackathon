@@ -1,3 +1,10 @@
+name: Run Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest # 👈 still uses Linux even if you're on Windows locally
