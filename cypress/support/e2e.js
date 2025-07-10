@@ -16,3 +16,9 @@
 // Import commands.js using ES2015 syntax:
 import "./commands";
 import "@shelex/cypress-allure-plugin";
+
+Cypress.on("fail", (error, runnable) => {
+  // Don't stop the entire test runner
+  console.error("Test failed:", error.message);
+  throw error; // keeps the test marked as failed
+});
