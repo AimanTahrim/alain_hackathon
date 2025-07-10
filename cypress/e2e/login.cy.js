@@ -1,4 +1,4 @@
-it("logs in using custom command", () => {
+it("TC003", () => {
   cy.login();
   cy.url().should("include", "/items");
 });

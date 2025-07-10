@@ -1,4 +1,4 @@
-it("should visit Google and check title1", () => {
+it("TC001", () => {
   cy.visit("https://www.google.com");
   cy.title().should("include", "Firefox");
 });
