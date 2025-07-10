@@ -40,9 +40,17 @@ jobs:
         if: always()
         run: npx allure generate allure-results --clean -o allure-report
 
-      - name: 🔍 Debug Allure Report Folder
+      - name: 🪄 Create .nojekyll file
         if: always()
-        run: ls -R allure-report
+        run: touch ./allure-report/.nojekyll
+
+      - name: 🧪 Debug List Contents of Allure Report
+        if: always()
+        run: |
+          echo "Contents of allure-report:"
+          ls -lah ./allure-report
+          echo "Does index.html exist?"
+          test -f ./allure-report/index.html && echo "✅ Yes" || echo "❌ No"
 
       - name: 🚀 Deploy Allure Report to GitHub Pages
         if: always()
@@ -53,3 +61,4 @@ jobs:
           publish_branch: gh-pages
           force_orphan: true
           enable_jekyll: false
+          commit_message: "🚀 update allure report ${{ github.sha }}"
