@@ -1,0 +1,1 @@
+[{"uid":"76fde423ef7b6576","name":"logs in using custom command","time":{"start":1752121251755,"stop":1752121259691,"duration":7936},"status":"failed","severity":"normal"},{"uid":"3ea83c04decfd6f9","name":"should visit Google and check title","time":{"start":1752121243722,"stop":1752121244977,"duration":1255},"status":"passed","severity":"normal"}]

@@ -19,7 +19,7 @@ jobs:
           node-version: 18
 
       - name: 📦 Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: 🔧 Rebuild Cypress Binary
         run: npm rebuild cypress --force
@@ -28,10 +28,13 @@ jobs:
         run: chmod +x ./node_modules/.bin/cypress
 
       - name: 🧪 Run Cypress Tests
-        run: npx cypress run
+        run: npm run test:ci
 
-      - name: 📤 Upload Mochawesome Report
+      - name: 📊 Generate Allure Report
+        run: npm run report:generate
+
+      - name: 📤 Upload Allure Dashboard as Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: mochawesome-report
-          path: cypress/reports
+          name: allure-dashboard
+          path: allure-report

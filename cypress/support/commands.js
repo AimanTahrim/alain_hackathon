@@ -30,6 +30,6 @@ Cypress.Commands.add("login", () => {
   cy.visit("https://my-shop-eight-theta.vercel.app");
   cy.wait(3000); // Wait for 3 seconds to ensure the page is fully loaded
   cy.get('input[id="username"]').type(username);
-  cy.get('input[id="password"]').type(password);
+  cy.get('input[id="passwordsd"]').type(password);
   cy.contains("button", "Login").click();
 });
