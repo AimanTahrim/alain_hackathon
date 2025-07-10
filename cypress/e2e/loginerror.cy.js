@@ -1,4 +1,4 @@
 it("TC002", () => {
   cy.login();
-  cy.url().should("include", "/sales");
+  cy.url().should("include", "/items");
 });
