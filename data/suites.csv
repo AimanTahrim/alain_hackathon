@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","4404","TC002","","Thu Jul 10 15:45:45 UTC 2025","passed","Thu Jul 10 15:45:50 UTC 2025","","","",""
+"","4562","TC003","","Thu Jul 10 15:45:35 UTC 2025","passed","Thu Jul 10 15:45:40 UTC 2025","","","",""
+"","9016","TC004","","Thu Jul 10 15:45:23 UTC 2025","failed","Thu Jul 10 15:45:32 UTC 2025","","","",""
+"","901","TC001","","Thu Jul 10 15:45:19 UTC 2025","passed","Thu Jul 10 15:45:20 UTC 2025","","","",""
