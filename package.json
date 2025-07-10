@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:ci": "cross-env CYPRESS_allure=true npx cypress run",
+    "test:ci": "cross-env CYPRESS_allure=true cypress run",
     "report:generate": "allure generate allure-results --clean -o allure-report",
-    "report:open": "npx allure open allure-report",
+    "report:open": " allure open allure-report",
     "deploy:report": "gh-pages -d allure-report"
   },
   "keywords": [],
