@@ -52,6 +52,10 @@ jobs:
           echo "Does index.html exist?"
           test -f ./allure-report/index.html && echo "✅ Yes" || echo "❌ No"
 
+      - name: 🧪 Touch version file to bust cache
+        run: |
+          echo "Build at $(date)" > allure-report/version.txt
+
       - name: 🚀 Deploy Allure Report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
