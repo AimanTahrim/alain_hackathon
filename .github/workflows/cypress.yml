@@ -13,6 +13,11 @@ jobs:
       - name: 📥 Checkout Code
         uses: actions/checkout@v3
 
+      - name: 🧹 Clean old report
+        run: |
+          rm -rf allure-results
+          rm -rf allure-report
+
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v3
         with:
