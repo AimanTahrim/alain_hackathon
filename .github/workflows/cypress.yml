@@ -18,6 +18,13 @@ jobs:
           rm -rf allure-results
           rm -rf latest-report
 
+      - name: 🧠 Restore Allure History
+        if: always()
+        run: |
+          if [ -d latest-report/history ]; then
+            cp -r latest-report/history allure-results/
+          fi
+
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v3
         with:
