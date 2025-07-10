@@ -1,0 +1,47 @@
+{
+  "validCredentials": {
+    "username": "alain",
+    "password": "alain1234"
+  },
+  "invalidCredentials": [
+    {
+      "username": "invaliduser",
+      "password": "alain1234",
+      "description": "Invalid username"
+    },
+    {
+      "username": "testuser",
+      "password": "wrongpassword",
+      "description": "Invalid password"
+    }
+  ],
+  "edgeCases": [
+    {
+      "username": " testuser ",
+      "password": " alain1234 ",
+      "description": "Credentials with spaces"
+    },
+    {
+      "username": "TESTUSER",
+      "password": "alain1234",
+      "description": "Uppercase username"
+    },
+    {
+      "username": "testuser",
+      "password": "ALAIN1234",
+      "description": "Uppercase password (defect case)"
+    }
+  ],
+  "securityTests": [
+    {
+      "username": "admin'; DROP TABLE users; --",
+      "password": "alain1234",
+      "description": "SQL injection attempt"
+    },
+    {
+      "username": "<script>alert('XSS')</script>",
+      "password": "alain1234",
+      "description": "XSS attempt"
+    }
+  ]
+}

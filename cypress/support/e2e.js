@@ -22,3 +22,40 @@ Cypress.on("fail", (error, runnable) => {
   console.error("Test failed:", error.message);
   throw error; // keeps the test marked as failed
 });
+
+// Hide fetch/XHR requests from command log
+Cypress.on("window:before:load", (win) => {
+  win.fetch = null;
+});
+
+// Global error handling
+Cypress.on("uncaught:exception", (err, runnable) => {
+  // Prevent Cypress from failing the test on uncaught exceptions
+  // that might occur in the application
+  return false;
+});
+
+// Custom assertions
+chai.use((chai, utils) => {
+  chai.Assertion.addMethod("containMessage", function (message) {
+    const obj = this._obj;
+    const found = obj.find((el) => el.textContent.includes(message));
+    this.assert(
+      found,
+      `expected to find element containing "${message}"`,
+      `expected not to find element containing "${message}"`
+    );
+  });
+});
+
+// Global test configuration
+beforeEach(() => {
+  // Clear cookies and local storage before each test
+  cy.clearCookies();
+  cy.clearLocalStorage();
+
+  // Set up any global test data or configurations
+  cy.window().then((win) => {
+    win.sessionStorage.clear();
+  });
+});

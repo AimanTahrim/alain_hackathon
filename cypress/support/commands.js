@@ -23,13 +23,30 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add("login", () => {
-  const username = Cypress.env("username");
-  const password = Cypress.env("password");
 
+Cypress.Commands.add("itemWebsite", (username, password) => {
   cy.visit("https://my-shop-eight-theta.vercel.app");
-  cy.wait(3000); // Wait for 3 seconds to ensure the page is fully loaded
-  cy.get('input[id="username"]').type(username);
-  cy.get('input[id="password"]').type(password);
-  cy.contains("button", "Login").click();
+  cy.wait(2000);
+});
+
+Cypress.Commands.add("loginWithCredentials", (username, password) => {
+  cy.get("#username").type(username);
+  cy.get("#password").type(password);
+  cy.get("button").contains("Login").click();
+});
+
+Cypress.Commands.add("verifyLoginSuccess", () => {
+  cy.url().should("include", "/items");
+  cy.contains("Welcome").should("be.visible");
+});
+
+Cypress.Commands.add("verifyLoginFailure", () => {
+  cy.contains("Invalid username or password").should("be.visible");
+  cy.url().should("include", "/login");
+  cy.get("#password").should("have.value", "");
+});
+
+Cypress.Commands.add("clearLoginForm", () => {
+  cy.get("#username").clear();
+  cy.get("#password").clear();
 });
