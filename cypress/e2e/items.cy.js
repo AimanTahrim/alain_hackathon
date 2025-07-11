@@ -338,6 +338,30 @@ describe("E-commerce Product Page", () => {
         cy.get(".total-section").should("exist");
         cy.get(".action-buttons").should("exist");
       });
+
+      it.only("TC134 - should able to click on Confirm Order", () => {
+        // Fill all required fields
+        cy.get("#customerName").type("John Doe");
+        cy.get("#customerPhone").type("1234567890");
+        cy.get("#customerAddress").type("123 Main St, City, State 12345");
+
+        // Submit form
+        cy.get("#proceedBtn").click();
+
+        // Verify form submission (adjust based on your implementation)
+        // This might close the modal, redirect, or show success message
+        cy.get("#confirmYes", { timeout: 3000 }).should("be.visible").click();
+
+        cy.url().should("include", "/summary");
+        cy.get(".summary-content").should("exist");
+        cy.get("#customerDetails").should("exist");
+        cy.get(".items-section").should("exist");
+        cy.get(".total-section").should("exist");
+        cy.get(".action-buttons").should("exist");
+
+        cy.get(".btn-confirm").should("be.visible").click();
+        cy.contains("Order Confirmed").should("be.visible");
+      });
     });
 
     context("Form Interaction", () => {
