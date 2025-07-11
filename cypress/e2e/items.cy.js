@@ -339,7 +339,7 @@ describe("E-commerce Product Page", () => {
         cy.get(".action-buttons").should("exist");
       });
 
-      it.only("TC134 - should able to click on Confirm Order", () => {
+      it("TC134 - should able to click on Confirm Order", () => {
         // Fill all required fields
         cy.get("#customerName").type("John Doe");
         cy.get("#customerPhone").type("1234567890");
