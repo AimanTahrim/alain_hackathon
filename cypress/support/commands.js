@@ -24,7 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("itemWebsite", (username, password) => {
+Cypress.Commands.add("itemWebsite", () => {
   cy.visit("https://my-shop-eight-theta.vercel.app");
   cy.wait(2000);
 });

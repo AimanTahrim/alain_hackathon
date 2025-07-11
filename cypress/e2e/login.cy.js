@@ -117,7 +117,7 @@ describe("Login Feature Tests", () => {
       cy.url().should("include", "/");
     });
 
-    it("Should show validation messages for both empty fields", () => {
+    it("TC011 - Should show validation messages for both empty fields", () => {
       cy.window().then((win) => {
         cy.stub(win, "alert").as("windowAlert");
       });
