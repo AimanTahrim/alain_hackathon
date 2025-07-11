@@ -151,7 +151,7 @@ describe("Login Feature Tests", () => {
       cy.url().should("include", "/items");
     });
 
-    it.only("TC008 - Should handle leading/trailing spaces in credentials", () => {
+    it("TC008 - Should handle leading/trailing spaces in credentials", () => {
       // Test data with spaces
       const usernameWithSpaces = " alain ";
       const passwordWithSpaces = " alain1234 ";
@@ -170,7 +170,7 @@ describe("Login Feature Tests", () => {
       cy.get("@windowAlert").should("have.been.calledWith", "Invalid login");
     });
 
-    it.only("TC009 - Should handle special characters in password", () => {
+    it("TC009 - Should handle special characters in password", () => {
       // Test data with special characters
       const username = "alain";
       const specialPassword = "alain@1234#";
@@ -190,7 +190,7 @@ describe("Login Feature Tests", () => {
       cy.get("@windowAlert").should("have.been.calledWith", "Invalid login");
     });
 
-    it.only("TC010 - Should handle maximum length input gracefully", () => {
+    it("TC010 - Should handle maximum length input gracefully", () => {
       // Test data with extremely long strings
       const longUsername = "a".repeat(500);
       const longPassword = "b".repeat(500);
